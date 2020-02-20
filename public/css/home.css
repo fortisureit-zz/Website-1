@@ -1,0 +1,294 @@
+/* MAIN */
+main {
+  height: 90vh;
+  width: 100vw;
+}
+
+.parallax {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(../img/home-head-office.jpg);
+  height: 100%;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+}
+
+.hero-text {
+  text-align: center;
+  position: absolute;
+  top: 30%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.hero-text h1 {
+  font-size:  4.3em;
+}
+
+.hero-text span {
+  font-family: 'Montserrat', sans-serif;
+  color: #9F1224;
+}
+
+.hero-text h3 {
+  font-size: 1.4rem;
+}
+
+.hero-text p {
+  font-size: .8rem;
+}
+
+.hero-text h3, .tb-1, .tb-2, .tb-3 {
+  font-style: italic;
+  font-weight: 400;
+}
+
+.hero-text h1, .hero-text h3, .hero-text {
+  color: #fff;
+}
+/* MAIN */
+
+
+
+/* SECTION */
+.value-1, .value-2, .value-3 {
+  background-color: #eeeeee;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  display: grid;
+  justify-items: center;
+}
+
+.value-1 h2, .value-2 h2, .value-3 h2 {
+  color: #9F1224;
+  font-size: 1.5em;
+  margin: 40px 0 0 0;
+}
+
+.value-1 p, .value-2 p, .value-3 p {
+  font-size: .88rem;
+  color: #333;
+  max-width: 425px;
+  margin-top: 0;
+}
+
+.icon-1, .icon-2, .icon-3 {
+  max-width: 150px;
+}
+
+.tb-1, .tb-2, .tb-3 {
+  text-align: center;
+  margin-bottom: 0;
+}
+
+.tb-2 {
+  max-width: 300px;
+}
+
+.certifications h4, .certifications-2 h4 {
+  font-style: italic;
+  font-weight: 400;
+  margin-bottom: 0;
+}
+
+.mta {
+  margin-bottom: 8px;
+}
+
+.mta, .mta-2 {
+  width: 100%;
+  max-width: 200px;
+  margin-right: 20px;
+}
+
+.certifications-2 h2 {
+  margin-top: 0px;
+}
+
+.tech-students, .tech-training {
+  width: 75%;
+  max-width: 400px;
+  max-height: 400px;
+}
+
+.training {
+  text-align: center;
+  height: 100%;
+  max-height: 900px;
+  width: 100%;
+  max-width: 800px;
+  box-shadow: 0 0 20px 0 rgba(77, 49, 49, 0.2);
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 25% 100px 1fr;
+}
+
+
+.graduates {
+  grid-row: 1;
+  grid-column: 1 / 4;
+  align-self: center;
+  justify-self: center;
+  width: 100%;
+  max-width: 275px;
+}
+
+.training-head {
+  grid-row: 2;
+  grid-column: 1 / 4;
+  align-self: baseline;
+}
+
+.training-head h1 {
+  margin-top: 75px;
+  margin-bottom: 0px;
+}
+
+.training-info {
+  grid-row: 3;
+  grid-column: 1 / 4;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+  place-items: center;
+  margin: 1em;
+  margin-top: 0;
+}
+
+.training-info p {
+  grid-row: 1;
+  grid-column: 1 / 4;
+  width: 80%;
+  margin-top: 0;
+}
+
+.learn-a {
+  grid-row: 2;
+  grid-column: 1 / 3;
+  font-style: italic;
+  font-weight: 400;
+}
+
+.learn-b {
+  grid-row: 3;
+  grid-column: 1 / 3;
+  font-style: italic;
+  font-weight: 400;
+}
+
+.a-button, .b-button {
+  font-style: italic;
+  padding: 1em;
+  background-color: #9F1224;
+  color: #fff;
+  margin: .2em;
+  width: 75px;
+  height: 75px;
+}
+
+.a-button:hover, .b-button:hover{
+  background-color: #333;
+  margin-left: 2em;
+  transition: ease-in-out .5s;
+}
+
+.b-button {
+  background-color: #3B3A6D;
+}
+/* SECTION */
+
+
+
+/* FORMS */
+.wrapper {
+  border-radius: 0 0 4px 4px;
+}
+
+.container {
+  max-width: 1170px;
+}
+
+.container span {
+  font-style: italic;
+  font-weight: 400;
+}
+
+.form-head {
+  text-align: center;
+  margin-top: 0;
+}
+
+.company-info {
+  font-size: .9em;
+}
+.container.a .form-head span {
+  color: #9F1224;
+}
+
+.container.b .form-head span {
+  color: #3B3A6D;
+}
+
+.wrapper {
+  box-shadow: 0 0 20px 0 rgba(77, 49, 49, 0.2)
+}
+
+.wrapper > * {
+  padding: 1em;
+}
+
+.container.a .company-info {
+  background-color: #9F1224;
+  color: #fff;
+}
+
+.container.b .company-info {
+  background-color: #3B3A6D;
+  color: #fff;
+}
+
+
+.company-info h3 {
+  color: #fff;
+}
+
+.company-info h3, .company-info p {
+  text-align: center;
+}
+
+.contact form {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 20px;
+}
+
+.contact form label { 
+  display: block;
+}
+
+.contact form p {
+  margin: 0;
+}
+
+.contact form .full {
+  grid-column: 1 / 3;
+}
+
+.contact form button, .contact form input, .contact form textarea, .contact form select{
+  width: 100%;
+  padding: .5em;
+  border: 1px solid #333;
+  color: #333;
+}
+
+.contact form button {
+  border: 0;
+  text-transform: uppercase;
+  color: #fff;
+}
+
+
+/* FORMS */
+
