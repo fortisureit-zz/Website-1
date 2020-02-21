@@ -570,8 +570,7 @@ app.post('/training', (req, res) => {
       },
       "To": [
         {
-          "Email": "fortisureit@gmail.com",
-          "Name": `${req.body.firstName} ${req.body.lastName}`
+          "Email": "fortisureit@gmail.com"
         }
       ],
       "Subject": 'New Contact Info Form',
@@ -1086,8 +1085,7 @@ app.post('/service', (req, res) => {
       },
       "To": [
         {
-          "Email": "fortisureit@gmail.com",
-          "Name": `${req.body.firstName} ${req.body.lastName}`
+          "Email": "fortisureit@gmail.com"
         }
       ],
       "Subject": 'New Contact Info Form',
