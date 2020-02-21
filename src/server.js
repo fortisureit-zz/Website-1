@@ -107,8 +107,8 @@ app.post('/training', (req, res) => {
     "Messages":[
     {
       "From": {
-        "Email": "fortisureit@gmail.com",
-        "Name": `FortisureIT`
+        "Email": "training@fortisureit.com",
+        "Name": `Training`
       },
       "To": [
         {
@@ -565,8 +565,8 @@ app.post('/training', (req, res) => {
     "Messages":[
     {
       "From": {
-        "Email": "fortisureit@gmail.com",
-        "Name": `FortisureIT.com`
+        "Email": "training@fortisureit.com",
+        "Name": `Training`
       },
       "To": [
         {
@@ -622,8 +622,8 @@ app.post('/service', (req, res) => {
     "Messages":[
       {
         "From": {
-          "Email": "fortisureit@gmail.com",
-          "Name": `FortisureIT`
+          "Email": "info@fortisureit.com",
+          "Name": `Info / Service`
         },
         "To": [
           {
@@ -1081,8 +1081,8 @@ app.post('/service', (req, res) => {
     "Messages":[
     {
       "From": {
-        "Email": "fortisureit@gmail.com",
-        "Name": `FortisureIT.com`
+        "Email": "info@fortisureit.com",
+        "Name": `Info / Service`
       },
       "To": [
         {
