@@ -101,17 +101,13 @@ function handleError (err) {
 }
 
 
-
-
-
-
 // Training Form
 app.post('/training', (req, res) => {
   const emailData = {
     "Messages":[
     {
       "From": {
-        "Email": "alex.barbati@fortisureit.com",
+        "Email": "fortisureit@gmail.com",
         "Name": `FortisureIT`
       },
       "To": [
@@ -569,12 +565,12 @@ app.post('/training', (req, res) => {
     "Messages":[
     {
       "From": {
-        "Email": "alex.barbati@fortisureit.com",
+        "Email": "fortisureit@gmail.com",
         "Name": `FortisureIT.com`
       },
       "To": [
         {
-          "Email": "alex.barbati@fortisureit.com",
+          "Email": "fortisureit@gmail.com",
           "Name": `${req.body.firstName} ${req.body.lastName}`
         }
       ],
@@ -626,7 +622,7 @@ app.post('/service', (req, res) => {
     "Messages":[
       {
         "From": {
-          "Email": "alex.barbati@fortisureit.com",
+          "Email": "fortisureit@gmail.com",
           "Name": `FortisureIT`
         },
         "To": [
@@ -1085,12 +1081,12 @@ app.post('/service', (req, res) => {
     "Messages":[
     {
       "From": {
-        "Email": "alex.barbati@fortisureit.com",
+        "Email": "fortisureit@gmail.com",
         "Name": `FortisureIT.com`
       },
       "To": [
         {
-          "Email": "alex.barbati@fortisureit.com",
+          "Email": "fortisureit@gmail.com",
           "Name": `${req.body.firstName} ${req.body.lastName}`
         }
       ],
