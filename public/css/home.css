@@ -25,6 +25,7 @@ main {
 .hero-h1 {
   font-size:  4.3em;
   color: #3B3A6D;
+  margin-bottom: 15px;
 }
 
 .hero-text span {
@@ -34,10 +35,7 @@ main {
 
 .hero-text h3 {
   font-size: 1.4rem;
-}
-
-.hero-text p {
-  font-size: .8rem;
+  margin-top: 0px;
 }
 
 .hero-text h3, .tb-1, .tb-2, .tb-3 {

@@ -108,7 +108,7 @@ app.post('/training', (req, res) => {
     {
       "From": {
         "Email": "training@fortisureit.com",
-        "Name": `Training`
+        "Name": `Fortisure`
       },
       "To": [
         {
@@ -566,7 +566,7 @@ app.post('/training', (req, res) => {
     {
       "From": {
         "Email": "training@fortisureit.com",
-        "Name": `Training`
+        "Name": `Fortisure`
       },
       "To": [
         {
@@ -581,8 +581,7 @@ app.post('/training', (req, res) => {
       Last Name: ${req.body.lastName}</br>
       Email: ${req.body.email}</br>
       Phone: ${req.body.phone}</br>
-      School: ${req.body.school}`,
-      "CustomID": "ContactEmail"
+      School: ${req.body.school}`
     }
   ]
   };
@@ -1098,8 +1097,7 @@ app.post('/service', (req, res) => {
       Phone: ${req.body.phone}</br>
       Area of Interest: ${req.body.interest}</br>
       Message: </br>
-      ${req.body.message}`,
-      "CustomID": "ServiceEmail"
+      ${req.body.message}`
     }
   ]
   };
