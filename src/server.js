@@ -570,7 +570,7 @@ app.post('/training', (req, res) => {
       },
       "To": [
         {
-          "Email": "info@fortisureit.com"
+          "Email": "training@fortisureit.com"
         }
       ],
       "Subject": 'New Contact Info Form',
