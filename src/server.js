@@ -1090,7 +1090,7 @@ app.post('/service', (req, res) => {
       "Cc": [
           {
               "Email": "rob.kozak@fortisureit.com",
-              "Name": "Robert Kozak"
+              "Name": "Rob Kozak"
           }
       ],
       "Bcc": [
