@@ -1082,10 +1082,22 @@ app.post('/service', (req, res) => {
         "Email": "info@fortisureit.com",
         "Name": `Info / Service`
       },
-      "Recipients": [
+      "To": [
         {
           "Email": "info@fortisureit.com"
         }
+      ],
+      "Cc": [
+          {
+              "Email": "rob.kozak@fortisureit.com",
+              "Name": "Robert Kozak"
+          }
+      ],
+      "Bcc": [
+          {
+              "Email": "scott.arnold@fortisureit.com",
+              "Name": "Scott Arnold"
+          }
       ],
       "Subject": 'New Contact Info Form',
       "TextPart": "Contact",
