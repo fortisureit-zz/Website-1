@@ -34,7 +34,7 @@ button {
   color: #fff;
   width: 100px;
   padding: 10px;
-  font-size: 1.2em;
+  font-size: 1em;
   letter-spacing: .5px;
 }
 
@@ -46,6 +46,7 @@ button:hover {
 button:active {
   transition: 0.05s;
   width: 115px;
+  letter-spacing: 1px;
 }
 
 a {
