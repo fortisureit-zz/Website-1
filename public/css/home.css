@@ -5,7 +5,7 @@ main {
 }
 
 .parallax {
-  background-image: linear-gradient(rgb(255, 255, 255) 10%,rgba(255, 255, 255, 0.89) 45%, rgba(0, 0, 0, 0.219)), url(https://res.cloudinary.com/dxleu7n2q/image/upload/v1582555372/fortisure-it-site/home-head-office_rxchsb.jpg);
+  background-image: linear-gradient(rgb(255, 255, 255) 10%,rgba(255, 255, 255, 0.89) 45%, rgba(0, 0, 0, 0.219)), url(..img/home-head-office.jpg);
   height: 100%;
   background-attachment: fixed;
   background-position: center;
