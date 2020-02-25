@@ -32,11 +32,11 @@ app.use(
         csp.SELF,
         csp.INLINE,
         'https://fonts.googleapis.com/',
-        `https://res.cloudinary.com/`
+        'https://res.cloudinary.com/'
       ],
       'style-src': [csp.SELF, csp.INLINE, 'https://fonts.googleapis.com/'],
       'font-src': [csp.SELF, 'https://fonts.gstatic.com'],
-      'script-src': [csp.SELF, csp.INLINE, 'https://www.google.com/recaptcha/', "https://www.gstatic.com/recaptcha/"],
+      'script-src': [csp.SELF, csp.INLINE, 'https://www.google.com/recaptcha/', "https://www.gstatic.com/recaptcha/", 'https://www.google.com/recaptcha/api.js'],
       'worker-src': [csp.NONE],
       'frame-src': ['https://www.google.com/recaptcha/'],
       'media-src': [
