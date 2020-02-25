@@ -63,16 +63,7 @@ const hbs = handlebars.create({
   partialsDir: [
     //  path to your partials
     path.join(__dirname, '../views/partials')
-  ],
-  //custom helper
-  helpers: {
-    calc: function(value) {
-      return value + 7
-    },
-    list: function(value, options) {
-      return '<h2>' + options.fn({ test: value, page: 'hey yo' }) + '</h2>'
-    }
-  }
+  ]
 })
 app.engine('handlebars', hbs.engine)
 app.set('view engine', 'handlebars')
@@ -616,21 +607,32 @@ app.post('/training', (req, res) => {
     })
     .catch(handleError)
 
-  const request = mailjet.post('send', { version: 'v3.1' })
-  request
-    .request(emailData)
-    .then(result => {
-      console.log(result.body)
-      res.redirect('/success')
-    })
-    .catch(handleError)
-  request
-    .request(emailData2)
-    .then(result => {
-      console.log(result.body)
-      res.redirect('/success')
-    })
-    .catch(handleError)
+    const request = mailjet.post('send', { version: 'v3.1' })
+    if (req.body.password == 0) {
+      request
+        .request(emailData2)
+        .then(result => {
+          console.log(result.body)
+          res.redirect('/success')
+        })
+        .catch(handleError)
+        request
+        .request(emailData)
+        .then(result => {
+          console.log(result.body)
+          res.redirect('/success')
+        })
+        .catch(handleError)
+      } else {
+        console.log('yay! baby!')
+        request
+        .request(emailData)
+        .then(result => {
+          console.log(result.body)
+          res.redirect('/success')
+        })
+        .catch(handleError)
+      }
 })
 
 //Service Form
@@ -1139,15 +1141,8 @@ app.post('/service', (req, res) => {
       Name: `${req.body.firstName} ${req.body.organization}`
     })
     .catch(handleError)
-
-  const request = mailjet.post('send', { version: 'v3.1' })
-  request
-    .request(emailData)
-    .then(result => {
-      console.log(result.body)
-      res.redirect('/success')
-    })
-    .catch(handleError)
+const request = mailjet.post('send', { version: 'v3.1' })
+if (req.body.password == 0) {
   request
     .request(emailData2)
     .then(result => {
@@ -1155,6 +1150,23 @@ app.post('/service', (req, res) => {
       res.redirect('/success')
     })
     .catch(handleError)
+    request
+    .request(emailData)
+    .then(result => {
+      console.log(result.body)
+      res.redirect('/success')
+    })
+    .catch(handleError)
+  } else {
+    console.log('yay! baby!')
+    request
+    .request(emailData)
+    .then(result => {
+      console.log(result.body)
+      res.redirect('/success')
+    })
+    .catch(handleError)
+  }
 })
 
 module.exports.handler = serverless(app)
