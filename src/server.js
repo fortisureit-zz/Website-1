@@ -30,7 +30,7 @@ app.use(
       ],
       'style-src': [csp.SELF, csp.INLINE, 'https://fonts.googleapis.com/'],
       'font-src': [csp.SELF, 'https://fonts.gstatic.com'],
-      'script-src': [csp.SELF, csp.INLINE],
+      'script-src': [csp.SELF, csp.INLINE, 'https://www.google.com/recaptcha/api.js'],
       'worker-src': [csp.NONE],
       'media-src': [
         csp.SELF,
