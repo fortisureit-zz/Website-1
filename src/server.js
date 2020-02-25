@@ -14,8 +14,6 @@ app.listen(process.env.PORT || port, () =>
 
 app.use(express.static('public'))
 
-
-
 app.use(
   csp({
     policies: {
@@ -594,18 +592,9 @@ app.post('/training', (req, res) => {
           Email: 'training@fortisureit.com',
           Name: `Fortisure`
         },
-        Cc: [
-          {
-            Email: 'brandon.taylor@fortisureit.com',
-            Name: 'Brandon Taylor'
-          }
-        ],
-        Bcc: [
-          {
-            Email: 'scott.arnold@fortisureit.com',
-            Name: 'Scott Arnold'
-          }
-        ],
+        To: {
+          Email: 'training@fortisureit.com'
+        },
         Subject: 'New Contact Info Form',
         TextPart: 'Contact',
         HTMLPart: `
@@ -619,7 +608,9 @@ app.post('/training', (req, res) => {
     ]
   }
 
-  mailjet
+  
+  if (req.body.contact_me_by_fax_only !== 1) {
+      mailjet
     .post('/contact')
     .request({
       Email: `${req.body.email}`,
@@ -642,6 +633,9 @@ app.post('/training', (req, res) => {
       res.redirect('/success')
     })
     .catch(handleError)
+  } else {
+  console.log('bot')
+  }
 })
 
 //Service Form
