@@ -14,6 +14,11 @@ app.listen(process.env.PORT || port, () =>
 
 app.use(express.static('public'))
 
+app.use(function(req, res, next){
+  res.header("Content-Security-Policy", "default-src 'self';script-src 'https://www.google.com/recaptcha/api.js'");
+  next();
+})
+
 app.use(
   csp({
     policies: {
