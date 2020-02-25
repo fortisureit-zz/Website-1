@@ -31,7 +31,7 @@ app.use(
       ],
       'style-src': [csp.SELF, csp.INLINE, 'https://fonts.googleapis.com/'],
       'font-src': [csp.SELF, 'https://fonts.gstatic.com'],
-      'script-src': [csp.SELF, 'https://www.google.com/recaptcha/api.js', "https://www.google.com/recaptcha/api.js", 'https://www.gstatic.com/recaptcha/releases/n1ZaVsRK4TYyiKxYab0h8MUD/recaptcha__en.js'],
+      'script-src': [csp.SELF, csp.INLINE, 'https://www.google.com/recaptcha/api.js', "https://www.google.com/recaptcha/api.js", 'https://www.gstatic.com/recaptcha/releases/n1ZaVsRK4TYyiKxYab0h8MUD/recaptcha__en.js'],
       'worker-src': [csp.NONE],
       'media-src': [
         csp.SELF,
