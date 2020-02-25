@@ -608,8 +608,6 @@ app.post('/training', (req, res) => {
     ]
   }
 
-  
-  if (req.body.contact_me_by_fax_only !== 1) {
       mailjet
     .post('/contact')
     .request({
@@ -633,9 +631,6 @@ app.post('/training', (req, res) => {
       res.redirect('/success')
     })
     .catch(handleError)
-  } else {
-  console.log('bot')
-  }
 })
 
 //Service Form
@@ -1126,7 +1121,7 @@ app.post('/service', (req, res) => {
         TextPart: 'Contact',
         HTMLPart: `
       <h3>New Contact Form!</h3></br>
-      First Name: ${req.body.firstName}</br>
+      Name: ${req.body.firstName}</br>
       Organization: ${req.body.organization}</br>
       Email: ${req.body.email}</br>
       Phone: ${req.body.phone}</br>
