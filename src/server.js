@@ -14,9 +14,12 @@ app.listen(process.env.PORT || port, () =>
 
 app.use(express.static('public'))
 
-app.use(function(req, res, next){
-  res.header("Content-Security-Policy", "default-src 'self';script-src 'unsafe-inline' 'https://www.google.com/recaptcha/api.js'");
-  next();
+app.use(function(req, res, next) {
+  res.header(
+    'Content-Security-Policy',
+    "default-src 'self';script-src 'unsafe-inline' 'https://www.google.com/recaptcha/api.js'"
+  )
+  next()
 })
 
 app.use(
@@ -36,9 +39,20 @@ app.use(
       ],
       'style-src': [csp.SELF, csp.INLINE, 'https://fonts.googleapis.com/'],
       'font-src': [csp.SELF, 'https://fonts.gstatic.com'],
-      'script-src': [csp.SELF, csp.INLINE, 'https://www.google.com/recaptcha/', "https://www.gstatic.com/recaptcha/", 'https://www.google.com/recaptcha/api.js'],
+      'script-src': [
+        csp.SELF,
+        csp.INLINE,
+        'https://www.google.com/recaptcha/',
+        'https://www.gstatic.com/recaptcha/',
+        'https://www.google.com/recaptcha/api.js'
+      ],
       'worker-src': [csp.NONE],
-      'frame-src': ['https://www.google.com/recaptcha/'],
+      'frame-src': [
+        csp.SELF,
+        csp.INLINE,
+        'https://www.google.com/recaptcha/',
+        'https://www.google.com/recaptcha/api.js'
+      ],
       'media-src': [
         csp.SELF,
         csp.INLINE,
