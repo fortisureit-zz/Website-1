@@ -650,7 +650,7 @@ app.post('/training',
           res.redirect('/success')
         }).catch(errors)
       mailjetPOST
-        .request(emailData)
+        .request(emailData2)
         .then(result => {
           console.log(result.body)
           // redirect to success page
@@ -1208,7 +1208,7 @@ app.post('/service',
           res.redirect('/success')
         }).catch(handleError)
       mailjetPOST
-        .request(emailData)
+        .request(emailData2)
         .then(result => {
           console.log(result.body)
           // redirect to success page
