@@ -113,9 +113,9 @@ const mailjet = require('node-mailjet').connect(
   process.env.MJ_APIKEY_PRIVATE
 )
 
-function handleError(err) {
-  throw new Error(err)
-}
+// function handleError(err) {
+//   throw new Error(err)
+// }
 
 // Training Form
 app.post('/training', 
@@ -123,11 +123,11 @@ app.post('/training',
     check('firstName', 'not gucci')
       .notEmpty()
       .trim()
-      .isAscii(),
+      .isAlpha('en-us'),
     check('lastName')
       .notEmpty()
       .trim()
-      .isAscii(),
+      .isAlpha('en-us'),
     check('email')
       .notEmpty()
       .trim()
@@ -628,14 +628,14 @@ app.post('/training',
 
     //handle error
     if (!errors.isEmpty()) {
-      return res.status(422).jsonp(errors.array())
+      console.log(res.status(422).jsonp(errors.array()))
     } else {
       // post contact to mailjet
       mailjet
         .post('/contact')
         .request({
           Email: `${req.body.email}`
-        }).catch(handleError)
+        }).catch(errors)
 
       // start request to mailjet
       const mailjetPOST = mailjet.post('send', { version: 'v3.1' })
@@ -647,14 +647,14 @@ app.post('/training',
           console.log(result.body)
           // redirect to success page
           res.redirect('/success')
-        }).catch(handleError)
+        }).catch(errors)
       mailjetPOST
         .request(emailData)
         .then(result => {
           console.log(result.body)
           // redirect to success page
           res.redirect('/success')
-        }).catch(handleError)
+        }).catch(errors)
     }
 })
 
@@ -664,7 +664,7 @@ app.post('/service',
     check('firstName', 'not gucci')
       .notEmpty()
       .trim()
-      .isAscii(),
+      .isAlpha('en-us'),
     check('organization')
       .notEmpty()
       .trim()
