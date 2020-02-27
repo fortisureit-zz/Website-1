@@ -127,25 +127,25 @@ function handleError(err) {
 // Training Form
 app.post('/training', 
   [
-    check('firstName', 'not gucci')
+    check('firstName', 'Field Invalid')
       .notEmpty()
       .trim()
       .isAlpha(),
-    check('lastName')
+    check('lastName', 'Field Invalid')
       .notEmpty()
       .trim()
       .isAlpha(),
-    check('email')
+    check('email','Email Invalid')
       .notEmpty()
       .trim()
       .isEmail()
       .normalizeEmail()
       .isAscii(),
-    check('phone')
+    check('phone','Phone Number Invalid')
       .notEmpty()
       .trim()
       .isNumeric([{ no_symbols: true }]),
-    check('school')
+    check('school', 'Field Invalid')
       .notEmpty()
       .isAscii()
   ],
@@ -669,21 +669,21 @@ app.post('/training',
 //Service Form
 app.post('/service', 
 [
-    check('firstName', 'not gucci')
+    check('firstName', 'Field Invalid')
       .notEmpty()
       .trim()
       .isAlpha(),
-    check('organization')
+    check('organization', 'Field Invalid')
       .notEmpty()
       .trim()
       .isAscii(),
-    check('email')
+    check('email','Email Invalid')
       .notEmpty()
       .trim()
       .isEmail()
       .normalizeEmail()
       .isAscii(),
-    check('phone')
+    check('phone','Phone Number Invalid')
       .notEmpty()
       .trim()
       .isNumeric([{ no_symbols: true }]),
