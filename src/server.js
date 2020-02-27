@@ -108,6 +108,12 @@ app.get('/success', (req, res) => {
     style: 'success.css'
   })
 })
+app.get('/failed', (req, res) => {
+  res.render('failed', {
+    title: 'Please Try Again',
+    style: 'success.css'
+  })
+})
 
 const mailjet = require('node-mailjet').connect(
   process.env.MJ_APIKEY_PUBLIC,
@@ -629,7 +635,8 @@ app.post('/training',
 
     //handle error
     if (!errors.isEmpty()) {
-      res.status(422).jsonp(errors.array())
+      res.redirect('/failed')
+      // res.status(422).jsonp(errors.array())
     } else {
       // post contact to mailjet
       mailjet
@@ -1187,7 +1194,8 @@ app.post('/service',
 
     //handle error
     if (!errors.isEmpty()) {
-      return res.status(422).jsonp(errors.array())
+      // return res.status(422).jsonp(errors.array())
+      res.redirect('/failed')
     } else {
       // post contact to mailjet
       mailjet
