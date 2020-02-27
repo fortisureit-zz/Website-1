@@ -114,9 +114,9 @@ const mailjet = require('node-mailjet').connect(
   process.env.MJ_APIKEY_PRIVATE
 )
 
-// function Error(err) {
-//   throw new Error(err)
-// }
+function handleError(err) {
+  throw new Error(err)
+}
 
 // Training Form
 app.post('/training', 
@@ -636,7 +636,7 @@ app.post('/training',
         .post('/contact')
         .request({
           Email: `${req.body.email}`
-        }).catch(Error)
+        }).catch(handleError)
 
       // start request to mailjet
       const mailjetPOST = mailjet.post('send', { version: 'v3.1' })
@@ -648,14 +648,14 @@ app.post('/training',
           console.log(result.body)
           // redirect to success page
           res.redirect('/success')
-        }).catch(Error)
+        }).catch(handleError)
       mailjetPOST
         .request(emailData2)
         .then(result => {
           console.log(result.body)
           // redirect to success page
           res.redirect('/success')
-        }).catch(Error)
+        }).catch(handleError)
     }
 })
 
@@ -1194,7 +1194,7 @@ app.post('/service',
         .post('/contact')
         .request({
           Email: `${req.body.email}`
-        }).catch(Error)
+        }).catch(handleError)
 
       // start request to mailjet
       const mailjetPOST = mailjet.post('send', { version: 'v3.1' })
@@ -1206,14 +1206,14 @@ app.post('/service',
           console.log(result.body)
           // redirect to success page
           res.redirect('/success')
-        }).catch(Error)
+        }).catch(handleError)
       mailjetPOST
         .request(emailData2)
         .then(result => {
           console.log(result.body)
           // redirect to success page
           res.redirect('/success')
-        }).catch(Error)
+        }).catch(handleError)
     }
 })
 
