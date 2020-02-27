@@ -120,7 +120,7 @@ const mailjet = require('node-mailjet').connect(
 
 // Training Form
 app.post('/training', 
-  
+  [
     check('firstName', 'not gucci')
       .notEmpty()
       .trim()
@@ -142,7 +142,7 @@ app.post('/training',
     check('school')
       .notEmpty()
       .isAscii()
-  ,
+  ],
   (req, res) => {
     const emailData = {
       Messages: [
@@ -661,7 +661,7 @@ app.post('/training',
 
 //Service Form
 app.post('/service', 
-
+[
     check('firstName', 'not gucci')
       .notEmpty()
       .trim()
@@ -682,7 +682,8 @@ app.post('/service',
       .isNumeric([{ no_symbols: true }]),
     check('message')
       .notEmpty()
-      .isAscii(),
+      .isAscii()
+  ],
   (req, res) => {
     const emailData = {
       Messages: [
