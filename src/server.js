@@ -665,7 +665,7 @@ app.post('/service',
     check('firstName', 'not gucci')
       .notEmpty()
       .trim()
-      .isAlpha('en-us'),
+      .isAlpha(),
     check('organization')
       .notEmpty()
       .trim()
