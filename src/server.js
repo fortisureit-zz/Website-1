@@ -34,9 +34,11 @@ app.use(
       'font-src': [csp.SELF, 'https://fonts.gstatic.com'],
       'script-src': [
         csp.SELF,
+        'unsafe-inline', 
         'https://www.google.com/recaptcha/',
         'https://www.gstatic.com/recaptcha/',
-        'https://www.google.com/recaptcha/api.js'
+        'https://www.google.com/recaptcha/api.js',
+        "https://www.googletagmanager.com/gtag/js?id=UA-159343542-1"
       ],
       'worker-src': [csp.NONE],
       'frame-src': [
