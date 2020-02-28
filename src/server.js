@@ -38,7 +38,8 @@ app.use(
         'https://www.google.com/recaptcha/',
         'https://www.gstatic.com/recaptcha/',
         'https://www.google.com/recaptcha/api.js',
-        "https://www.googletagmanager.com/gtag/js?id=UA-159343542-1"
+        "https://www.googletagmanager.com/gtag/js?id=UA-159343542-1",
+        "https://www.google-analytics.com/analytics.js" 
       ],
       'worker-src': [csp.NONE],
       'frame-src': [
