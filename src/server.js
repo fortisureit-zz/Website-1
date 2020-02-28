@@ -2,12 +2,21 @@ const { check, validationResult } = require('express-validator')
 const express = require('express')
 const csp = require('express-csp-header')
 const app = express()
+
 const serverless = require('serverless-http')
 require('dotenv').config({ path: `${__dirname}/.env` })
 const path = require('path')
 const handlebars = require('express-handlebars')
 const bodyParser = require('body-parser')
 const port = 8080
+
+const googAnal = require('universal-analytics')
+const visitor =googAnal('159343542')
+
+visitor.pageview('/').send()
+visitor.pageview('/about').send()
+visitor.pageview('/careers').send()
+visitor.pageview('/services').send()
 
 app.listen(process.env.PORT || port, () =>
   console.log(`Express server listening on port ${process.env.PORT || port}!`)
