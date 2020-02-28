@@ -28,7 +28,8 @@ app.use(
         csp.SELF,
         csp.INLINE,
         'https://fonts.googleapis.com/',
-        'https://res.cloudinary.com/'
+        'https://res.cloudinary.com/',
+        "https://www.google-analytics.com/r/collect?v=1&_v=j81&a=17204956&t=pageview&_s=1&dl=https%3A%2F%2Ffortisureit.com%2F&ul=en-us&de=UTF-8&dt=Fortisure%20IT&sd=24-bit&sr=1920x1080&vp=548x948&je=0&_u=IEBAAUAB~&jid=593123134&gjid=1943381835&cid=231714683.1582917994&tid=UA-159343542-1&_gid=1505644601.1582917994&_r=1&gtm=2ou2j0&z=2056694264"
       ],
       'style-src': [csp.SELF, csp.INLINE, 'https://fonts.googleapis.com/'],
       'font-src': [csp.SELF, 'https://fonts.gstatic.com'],
