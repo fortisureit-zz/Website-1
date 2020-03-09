@@ -13,10 +13,10 @@ const port = 8080
 const googAnal = require('universal-analytics')
 const visitor =googAnal('159343542')
 
-visitor.pageview('/').send()
-visitor.pageview('/about').send()
-visitor.pageview('/careers').send()
-visitor.pageview('/services').send()
+visitor.pageview('/', 'https://fortisureit.com', 'Fortisure IT').send()
+visitor.pageview('/about', 'https://fortisureit.com/about', 'About').send()
+visitor.pageview('/careers', 'https://fortisureit.com/careers', 'Career Development').send()
+visitor.pageview('/services', 'https://fortisureit.com/services', 'Services').send()
 
 app.listen(process.env.PORT || port, () =>
   console.log(`Express server listening on port ${process.env.PORT || port}!`)
@@ -25,6 +25,7 @@ app.listen(process.env.PORT || port, () =>
 app.use(express.static('public'))
 
 app.use(
+
   csp({
     policies: {
       'default-src': [
