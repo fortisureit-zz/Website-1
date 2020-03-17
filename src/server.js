@@ -629,18 +629,13 @@ app.post('/training',
             Name: `Fortisure`
           },
           To: {
-            Email: 'Brandon.Taylor@fortisureit.com'
+            Email: 'fortisureit@gmail.com',
+            Name: 'FortisureIT FortisureIT'
           },
           Cc: [
             {
               Email: 'brandon.taylor@fortisureit.com',
               Name: 'Brandon Taylor'
-            }
-          ],
-          Bcc: [
-            {
-              Email: 'scott.arnold@fortisureit.com',
-              Name: 'Scott Arnold'
             }
           ],
           Subject: 'New Contact Info Form',
