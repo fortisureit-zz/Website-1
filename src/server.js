@@ -617,7 +617,8 @@ app.post('/training',
               <!--[if mso | IE]></td></tr></table><![endif]-->
             </div>
           </body>
-        </html>`
+        </html>`,
+        CustomID: "1"
         }
       ]
     }
@@ -651,7 +652,8 @@ app.post('/training',
         Last Name: ${req.body.lastName}</br>
         Email: ${req.body.email}</br>
         Phone: ${req.body.phone}</br>
-        School: ${req.body.school}`
+        School: ${req.body.school}`,
+        CustomID: "1"
         }
       ]
     }
