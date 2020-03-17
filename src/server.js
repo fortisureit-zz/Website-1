@@ -625,11 +625,11 @@ app.post('/training',
       Messages: [
         {
           From: {
-            Email: 'training@fortisureit.com',
+            Email: 'info@fortisureit.com',
             Name: `Fortisure`
           },
           To: {
-            Email: 'training@fortisureit.com'
+            Email: 'Brandon.Taylor@fortisureit.com'
           },
           Cc: [
             {
