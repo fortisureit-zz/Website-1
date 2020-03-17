@@ -619,11 +619,7 @@ app.post('/training',
           </body>
         </html>`,
         CustomID: "1"
-        }
-      ]
-    }
-    const emailData2 = {
-      Messages: [
+        },
         {
           From: {
             Email: 'info@fortisureit.com',
@@ -684,13 +680,13 @@ app.post('/training',
           // redirect to success page
           res.redirect('/success')
         }).catch(handleError)
-      mailjetPOST
-        .request(emailData2)
-        .then(result => {
-          console.log(result.body)
-          // redirect to success page
-          res.redirect('/success')
-        }).catch(handleError)
+      // mailjetPOST
+      //   .request(emailData2)
+      //   .then(result => {
+      //     console.log(result.body)
+      //     // redirect to success page
+      //     res.redirect('/success')
+      //   }).catch(handleError)
     }
 })
 
