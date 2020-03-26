@@ -617,29 +617,20 @@ app.post('/training',
               <!--[if mso | IE]></td></tr></table><![endif]-->
             </div>
           </body>
-        </html>`,
-        CustomID: "1"
-        },
+        </html>`
+        }
+      ]
+    }
+    const emailData2 = {
+      Messages: [
         {
           From: {
             Email: 'training@fortisureit.com',
-            Name: `Info`
+            Name: `Fortisure`
           },
           To: {
             Email: 'training@fortisureit.com'
           },
-          Cc: [
-            {
-              Email: 'brandon.taylor@fortisureit.com',
-              Name: 'Brandon Taylor'
-            }
-          ],
-          Bcc: [
-            {
-              Email: 'scott.arnold@fortisureit.com',
-              Name: 'Scott Arnold'
-            }
-          ],
           Subject: 'New Contact Info Form',
           TextPart: 'Contact',
           HTMLPart: `
@@ -648,8 +639,7 @@ app.post('/training',
         Last Name: ${req.body.lastName}</br>
         Email: ${req.body.email}</br>
         Phone: ${req.body.phone}</br>
-        School: ${req.body.school}`,
-        CustomID: "2"
+        School: ${req.body.school}`
         }
       ]
     }
@@ -680,13 +670,13 @@ app.post('/training',
           // redirect to success page
           res.redirect('/success')
         }).catch(handleError)
-      // mailjetPOST
-      //   .request(emailData2)
-      //   .then(result => {
-      //     console.log(result.body)
-      //     // redirect to success page
-      //     res.redirect('/success')
-      //   }).catch(handleError)
+      mailjetPOST
+        .request(emailData2)
+        .then(result => {
+          console.log(result.body)
+          // redirect to success page
+          res.redirect('/success')
+        }).catch(handleError)
     }
 })
 
