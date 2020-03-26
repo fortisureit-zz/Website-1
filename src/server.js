@@ -622,11 +622,11 @@ app.post('/training',
         },
         {
           From: {
-            Email: 'info@fortisureit.com',
+            Email: 'training@fortisureit.com',
             Name: `Info`
           },
           To: {
-            Email: 'brandon.taylor@fortisureit.com'
+            Email: 'training@fortisureit.com'
           },
           Cc: [
             {
@@ -649,7 +649,7 @@ app.post('/training',
         Email: ${req.body.email}</br>
         Phone: ${req.body.phone}</br>
         School: ${req.body.school}`,
-        CustomID: "1"
+        CustomID: "2"
         }
       ]
     }
