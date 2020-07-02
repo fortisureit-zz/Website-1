@@ -1,0 +1,229 @@
+body {
+  background-color: #eeeeee;
+}
+.leadershipTeam-grid {
+  grid-template-columns: auto;
+  grid-template-rows: auto auto 100px;
+  height: auto;
+  width: auto;
+}
+/* SECTION 1 */
+.sec1-container {
+  width: 100%;
+  margin-top: 3%;
+  margin-bottom: 4%;
+}
+.greetings-title {
+  display: grid;
+  place-items: center;
+  text-align: center;
+  font-size: 64px;
+}
+/* SECTION 1 */
+
+/* SECTION 2 */
+/* OUR TEAM - TOP */
+.sec2-container {
+  display: grid;
+  grid-template-columns: 3% 1fr 1fr 1fr 1fr 3%;
+  grid-template-rows: 1600px;
+  height: 100%;
+  width: 100%;
+  grid-gap: 1em;
+  margin-bottom: 4%;
+}
+
+.leadershipTeam-top-pillar {
+  display: grid;
+  grid-template-columns: auto;
+  grid-template-rows: 20% 7% auto 3%;
+  height: 100%;
+  grid-column: 2;
+}
+.leadershipTeam-top-pillar:nth-child(2) {
+  grid-column: 3;
+}
+.leadershipTeam-top-pillar:nth-child(3) {
+  grid-column: 4;
+}
+.leadershipTeam-top-pillar:nth-child(4) {
+  grid-column: 5;
+}
+
+.leadershipTeam-top-nameNTitle {
+  background-color: #3b3a6d;
+  color: #fff;
+  padding: 0.5em;
+  padding-top: 1em;
+}
+.leadershipTeam-top-nameNTitle h1,
+.leadershipTeam-top-nameNTitle h2 {
+  text-align: center;
+  color: #fff;
+}
+.leadershipTeam-top-nameNTitle h4 {
+  color: #fff;
+  font-style: italic;
+  text-align: center;
+  font-weight: 400;
+  margin: 0%;
+}
+
+.red-arrow {
+  grid-row: 2;
+  width: 100%;
+  max-width: 25px;
+  align-self: center;
+  justify-self: center;
+}
+.red-arrow {
+  transform: rotate(90deg);
+}
+
+.leadershipTeam-top-description {
+  grid-row: 3;
+  background-color: #fff;
+  padding: 1.5em;
+}
+.leadershipTeam-top-description p {
+  margin: 0px;
+  margin: 0.5em;
+  font-size: 0.9em;
+}
+/* OUR TEAM - TOP */
+
+/* SECTION 2 */
+@media (max-width: 1500px) {
+  .sec2-container {
+    grid-template-columns: 3% 1fr 1fr 3%;
+    grid-template-rows: 1000px 600px;
+  }
+  .greetings-title {
+    font-size: 52px;
+  }
+  .leadershipTeam-top-pillar {
+    grid-template-rows: 170px 75px auto;
+  }
+  .leadershipTeam-top-pillar:nth-child(1) {
+    grid-column: 2;
+    grid-row: 1;
+  }
+  .leadershipTeam-top-pillar:nth-child(2) {
+    grid-column: 3;
+    grid-row: 1;
+  }
+  .leadershipTeam-top-pillar:nth-child(3) {
+    grid-column: 2;
+    grid-row: 2;
+  }
+  .leadershipTeam-top-pillar:nth-child(4) {
+    grid-column: 3;
+    grid-row: 2;
+  }
+  .leadershipTeam-top-description {
+    font-size: 1.2em;
+  }
+}
+@media (max-width: 1200px) {
+  .sec2-container {
+    grid-template-columns: 3% 1fr 1fr 3%;
+    grid-template-rows: 1200px 700px;
+  }
+  .greetings-title {
+    font-size: 42px;
+  }
+  .leadershipTeam-top-description {
+    font-size: 1.3em;
+  }
+}
+@media (max-width: 1025px) {
+  .sec2-container {
+    grid-template-columns: 3% 1fr 1fr 3%;
+    grid-template-rows: 1800px 950px;
+  }
+  .leadershipTeam-top-container {
+    grid-template-columns: 1fr;
+  }
+  .leadershipTeam-top-pillar {
+    grid-template-rows: 170px 75px auto;
+  }
+  .leadershipTeam-top-nameNTitle h1 {
+    font-size: 32px;
+  }
+  .leadershipTeam-top-nameNTitle h4 {
+    font-size: 18px;
+  }
+  .leadershipTeam-top-description {
+    margin-bottom: 5%;
+    font-size: 1.2em;
+  }
+  .leadershipTeam-top-description p {
+    margin: 0px;
+    margin: 0.5em;
+    font-size: 1.2em;
+  }
+}
+@media (max-width: 800px) {
+  .sec2-container {
+    grid-template-columns: 3% 1fr 3%;
+    grid-template-rows: 1000px 900px 650px 600px;
+  }
+  .greetings-title {
+    font-size: 42px;
+  }
+  .leadershipTeam-top-pillar:nth-child(1) {
+    grid-column: 2;
+    grid-row: 1;
+  }
+  .leadershipTeam-top-pillar:nth-child(2) {
+    grid-column: 2;
+    grid-row: 2;
+  }
+  .leadershipTeam-top-pillar:nth-child(3) {
+    grid-column: 2;
+    grid-row: 3;
+  }
+  .leadershipTeam-top-pillar:nth-child(4) {
+    grid-column: 2;
+    grid-row: 4;
+  }
+}
+@media (max-width: 680px) {
+  .sec2-container {
+    display: grid;
+    grid-template-columns: 1% 1fr 1%;
+    grid-template-rows: 1100px 1000px 650px 600px;
+  }
+  .greetings-title {
+    margin-top: 9%;
+    margin-bottom: 9%;
+    font-size: 26px;
+  }
+  .leadershipTeam-top-pillar {
+    grid-template-rows: 150px 7% auto 3%;
+  }
+}
+@media (max-width: 414px) {
+  .sec2-container {
+    display: grid;
+    grid-template-columns: 1% 1fr 1%;
+    grid-template-rows: 1400px 1250px 800px 750px;
+  }
+  .greetings-title {
+    margin-top: 16%;
+    margin-bottom: 8%;
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 414px) {
+  .leadershipTeam-top-pillar {
+    grid-template-rows: 200px 60px auto;
+  }
+}
+footer {
+  grid-row: 5;
+  grid-column: 1 / 4;
+  height: 100%;
+  padding: 10px;
+}

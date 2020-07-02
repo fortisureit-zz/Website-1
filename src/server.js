@@ -1,183 +1,192 @@
-const { check, validationResult } = require('express-validator')
-const express = require('express')
-const csp = require('express-csp-header')
-const app = express()
+const { check, validationResult } = require("express-validator");
+const express = require("express");
+const csp = require("express-csp-header");
+const app = express();
 
-const serverless = require('serverless-http')
-require('dotenv').config({ path: `${__dirname}/.env` })
-const path = require('path')
-const handlebars = require('express-handlebars')
-const bodyParser = require('body-parser')
-const port = 8080
+const serverless = require("serverless-http");
+require("dotenv").config({ path: `${__dirname}/.env` });
+const path = require("path");
+const handlebars = require("express-handlebars");
+const bodyParser = require("body-parser");
+const port = 8080;
 
-const googAnal = require('universal-analytics')
-const visitor =googAnal('159343542')
+const googAnal = require("universal-analytics");
+const visitor = googAnal("159343542");
 
-visitor.pageview('/', 'https://fortisureit.com', 'Fortisure IT').send()
-visitor.pageview('/about', 'https://fortisureit.com/about', 'About').send()
-visitor.pageview('/careers', 'https://fortisureit.com/careers', 'Career Development').send()
-visitor.pageview('/services', 'https://fortisureit.com/services', 'Services').send()
+visitor.pageview("/", "https://fortisureit.com", "Fortisure IT").send();
+visitor.pageview("/about", "https://fortisureit.com/about", "About").send();
+visitor
+  .pageview("/careers", "https://fortisureit.com/careers", "Career Development")
+  .send();
+visitor
+  .pageview("/services", "https://fortisureit.com/services", "Services")
+  .send();
+visitor
+  .pageview(
+    "/leadershipTeam",
+    "https://fortisureit.com/leadershipTeam",
+    "Leadership Team"
+  )
+  .send();
 
 app.listen(process.env.PORT || port, () =>
   console.log(`Express server listening on port ${process.env.PORT || port}!`)
-)
+);
 
-app.use(express.static('public'))
+app.use(express.static("public"));
 
 app.use(
-
   csp({
     policies: {
-      'default-src': [
+      "default-src": [
         csp.SELF,
         csp.INLINE,
-        'https://www.youtube.com/embed/m_YMxye5mEA',
-        'https://www.google.com/recaptcha/api.js'
+        "https://www.youtube.com/embed/m_YMxye5mEA",
+        "https://www.google.com/recaptcha/api.js",
       ],
-      'img-src': [
+      "img-src": [
         csp.SELF,
         csp.INLINE,
-        'https://fonts.googleapis.com/',
-        'https://res.cloudinary.com/',
-        "https://www.google-analytics.com/r/collect?v=1&_v=j81&a=17204956&t=pageview&_s=1&dl=https%3A%2F%2Ffortisureit.com%2F&ul=en-us&de=UTF-8&dt=Fortisure%20IT&sd=24-bit&sr=1920x1080&vp=548x948&je=0&_u=IEBAAUAB~&jid=593123134&gjid=1943381835&cid=231714683.1582917994&tid=UA-159343542-1&_gid=1505644601.1582917994&_r=1&gtm=2ou2j0&z=2056694264"
+        "https://fonts.googleapis.com/",
+        "https://res.cloudinary.com/",
+        "https://www.google-analytics.com/r/collect?v=1&_v=j81&a=17204956&t=pageview&_s=1&dl=https%3A%2F%2Ffortisureit.com%2F&ul=en-us&de=UTF-8&dt=Fortisure%20IT&sd=24-bit&sr=1920x1080&vp=548x948&je=0&_u=IEBAAUAB~&jid=593123134&gjid=1943381835&cid=231714683.1582917994&tid=UA-159343542-1&_gid=1505644601.1582917994&_r=1&gtm=2ou2j0&z=2056694264",
       ],
-      'style-src': [csp.SELF, csp.INLINE, 'https://fonts.googleapis.com/'],
-      'font-src': [csp.SELF, 'https://fonts.gstatic.com'],
-      'script-src': [
+      "style-src": [csp.SELF, csp.INLINE, "https://fonts.googleapis.com/"],
+      "font-src": [csp.SELF, "https://fonts.gstatic.com"],
+      "script-src": [
         csp.SELF,
-        csp.INLINE, 
-        'https://www.google.com/recaptcha/',
-        'https://www.gstatic.com/recaptcha/',
-        'https://www.google.com/recaptcha/api.js',
+        csp.INLINE,
+        "https://www.google.com/recaptcha/",
+        "https://www.gstatic.com/recaptcha/",
+        "https://www.google.com/recaptcha/api.js",
         "https://www.googletagmanager.com/gtag/js?id=UA-159343542-1",
-        "https://www.google-analytics.com/analytics.js" 
+        "https://www.google-analytics.com/analytics.js",
       ],
-      'worker-src': [csp.NONE],
-      'frame-src': [
+      "worker-src": [csp.NONE],
+      "frame-src": [
         csp.SELF,
         csp.INLINE,
-        'https://www.google.com/recaptcha/',
-        'https://www.google.com/recaptcha/api.js'
+        "https://www.google.com/recaptcha/",
+        "https://www.google.com/recaptcha/api.js",
       ],
-      'media-src': [
+      "media-src": [
         csp.SELF,
         csp.INLINE,
-        'https://www.youtube.com/embed/m_YMxye5mEA'
+        "https://www.youtube.com/embed/m_YMxye5mEA",
       ],
-      'block-all-mixed-content': true
-    }
+      "block-all-mixed-content": true,
+    },
   })
-)
+);
 // HTTP response header will be defined as:
 // "Content-Security-Policy: default-src 'none'; img-src 'self';"
 
 // Template Engine
 const hbs = handlebars.create({
-  defaultLayout: 'main',
-  layoutsDir: path.join(__dirname, '../views/layouts'),
+  defaultLayout: "main",
+  layoutsDir: path.join(__dirname, "../views/layouts"),
   partialsDir: [
     //  path to your partials
-    path.join(__dirname, '../views/partials')
-  ]
-})
-app.engine('handlebars', hbs.engine)
-app.set('view engine', 'handlebars')
-app.set('views', path.join(__dirname, '../views'))
+    path.join(__dirname, "../views/partials"),
+  ],
+});
+app.engine("handlebars", hbs.engine);
+app.set("view engine", "handlebars");
+app.set("views", path.join(__dirname, "../views"));
 
 // Body Parser
-app.use(bodyParser.urlencoded({ extended: true }))
-app.use(bodyParser.json())
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
 
 // Routes
-app.get('/', (req, res) => {
-  res.render('home', {
-    title: 'Fortisure IT',
-    style: 'home.css'
-  })
-})
+app.get("/", (req, res) => {
+  res.render("home", {
+    title: "Fortisure IT",
+    style: "home.css",
+  });
+});
 
-app.get('/about', (req, res) => {
-  res.render('about', {
-    title: 'About',
-    style: 'about.css'
-  })
-})
+app.get("/about", (req, res) => {
+  res.render("about", {
+    title: "About",
+    style: "about.css",
+  });
+});
 
-app.get('/careers', (req, res) => {
-  res.render('careers', {
-    title: 'Career Development',
-    style: 'careers.css'
-  })
-})
+app.get("/careers", (req, res) => {
+  res.render("careers", {
+    title: "Career Development",
+    style: "careers.css",
+  });
+});
 
-app.get('/services', (req, res) => {
-  res.render('services', {
-    title: 'Services',
-    style: 'services.css'
-  })
-})
-app.get('/success', (req, res) => {
-  res.render('success', {
-    title: 'Thank You',
-    style: 'success.css'
-  })
-})
-app.get('/failed', (req, res) => {
-  res.render('failed', {
-    title: 'Please Try Again',
-    style: 'success.css'
-  })
-})
+app.get("/services", (req, res) => {
+  res.render("services", {
+    title: "Services",
+    style: "services.css",
+  });
+});
+app.get("/leadershipTeam", (req, res) => {
+  res.render("leadershipTeam", {
+    title: "Leadership Team",
+    style: "leadershipTeam.css",
+  });
+});
+app.get("/success", (req, res) => {
+  res.render("success", {
+    title: "Thank You",
+    style: "success.css",
+  });
+});
+app.get("/failed", (req, res) => {
+  res.render("failed", {
+    title: "Please Try Again",
+    style: "success.css",
+  });
+});
 
-const mailjet = require('node-mailjet').connect(
+const mailjet = require("node-mailjet").connect(
   process.env.MJ_APIKEY_PUBLIC,
   process.env.MJ_APIKEY_PRIVATE
-)
+);
 
 function handleError(err) {
-  throw new Error(err)
+  throw new Error(err);
 }
 
 // Training Form
-app.post('/training', 
+app.post(
+  "/training",
   [
-    check('firstName', 'Field Invalid')
-      .notEmpty()
-      .trim()
-      .isAlpha(),
-    check('lastName', 'Field Invalid')
-      .notEmpty()
-      .trim()
-      .isAlpha(),
-    check('email','Email Invalid')
+    check("firstName", "Field Invalid").notEmpty().trim().isAlpha(),
+    check("lastName", "Field Invalid").notEmpty().trim().isAlpha(),
+    check("email", "Email Invalid")
       .notEmpty()
       .trim()
       .isEmail()
       .normalizeEmail()
       .isAscii(),
-    check('phone','Phone Number Invalid')
+    check("phone", "Phone Number Invalid")
       .notEmpty()
       .trim()
       .isNumeric([{ no_symbols: true }]),
-    check('school', 'Field Invalid')
-      .notEmpty()
-      .isAscii()
+    check("school", "Field Invalid").notEmpty().isAscii(),
   ],
   (req, res) => {
     const emailData = {
       Messages: [
         {
           From: {
-            Email: 'training@fortisureit.com',
-            Name: `Fortisure`
+            Email: "training@fortisureit.com",
+            Name: `Fortisure`,
           },
           To: [
             {
               Email: `${req.body.email}`,
-              Name: `${req.body.firstName} ${req.body.lastName}`
-            }
+              Name: `${req.body.firstName} ${req.body.lastName}`,
+            },
           ],
-          Subject: 'Thank You from FortisureIT',
+          Subject: "Thank You from FortisureIT",
           HTMLPart: `<!DOCTYPE html>
         <html
           xmlns="http://www.w3.org/1999/xhtml"
@@ -617,124 +626,121 @@ app.post('/training',
               <!--[if mso | IE]></td></tr></table><![endif]-->
             </div>
           </body>
-        </html>`
-        }
-      ]
-    }
+        </html>`,
+        },
+      ],
+    };
     const emailData2 = {
       Messages: [
         {
           From: {
-            Email: 'training@fortisureit.com',
-            Name: `Training`
+            Email: "training@fortisureit.com",
+            Name: `Training`,
           },
           To: [
             {
-              Email: 'training@fortisureit.com'
-            }
+              Email: "training@fortisureit.com",
+            },
           ],
           Cc: [
             {
-              Email: 'brandon.taylor@fortisureit.com',
-              Name: 'Brandon Taylor'
-            }
+              Email: "brandon.taylor@fortisureit.com",
+              Name: "Brandon Taylor",
+            },
           ],
           Bcc: [
             {
-              Email: 'scott.arnold@fortisureit.com',
-              Name: 'Scott Arnold'
-            }
+              Email: "scott.arnold@fortisureit.com",
+              Name: "Scott Arnold",
+            },
           ],
-          Subject: 'New Contact Info Form',
-          TextPart: 'Contact',
+          Subject: "New Contact Info Form",
+          TextPart: "Contact",
           HTMLPart: `
         <h3>New Contact Form!</h3></br>
         First Name: ${req.body.firstName}</br>
         Last Name: ${req.body.lastName}</br>
         Email: ${req.body.email}</br>
         Phone: ${req.body.phone}</br>
-        School: ${req.body.school}`
-        }
-      ]
-    }
+        School: ${req.body.school}`,
+        },
+      ],
+    };
 
-    const errors = validationResult(req)
-    console.log(req.body)
+    const errors = validationResult(req);
+    console.log(req.body);
 
     //handle error
     if (!errors.isEmpty()) {
-      res.redirect('/failed')
+      res.redirect("/failed");
       // res.status(422).jsonp(errors.array())
     } else {
       // post contact to mailjet
       mailjet
-        .post('/contact')
+        .post("/contact")
         .request({
-          Email: `${req.body.email}`
-        }).catch(handleError)
+          Email: `${req.body.email}`,
+        })
+        .catch(handleError);
 
       // start request to mailjet
-      const mailjetPOST = mailjet.post('send', { version: 'v3.1' })
+      const mailjetPOST = mailjet.post("send", { version: "v3.1" });
 
       // send out email
       mailjetPOST
         .request(emailData)
-        .then(result => {
-          console.log(result.body)
+        .then((result) => {
+          console.log(result.body);
           // redirect to success page
-          res.redirect('/success')
-        }).catch(handleError)
+          res.redirect("/success");
+        })
+        .catch(handleError);
       mailjetPOST
         .request(emailData2)
-        .then(result => {
-          console.log(result.body)
+        .then((result) => {
+          console.log(result.body);
           // redirect to success page
-          res.redirect('/success')
-        }).catch(handleError)
+          res.redirect("/success");
+        })
+        .catch(handleError);
     }
-})
+  }
+);
 
 //Service Form
-app.post('/service', 
-[
-    check('firstName', 'Field Invalid')
-      .notEmpty()
-      .trim()
-      .isAlpha(),
-    check('organization', 'Field Invalid')
-      .notEmpty()
-      .trim()
-      .isAscii(),
-    check('email','Email Invalid')
+app.post(
+  "/service",
+  [
+    check("firstName", "Field Invalid").notEmpty().trim().isAlpha(),
+    check("organization", "Field Invalid").notEmpty().trim().isAscii(),
+    check("email", "Email Invalid")
       .notEmpty()
       .trim()
       .isEmail()
       .normalizeEmail()
       .isAscii(),
-    check('phone','Phone Number Invalid')
+    check("phone", "Phone Number Invalid")
       .notEmpty()
       .trim()
       .isNumeric([{ no_symbols: true }]),
-    check('message')
-      .notEmpty()
-      .isAscii()
+    check("message").notEmpty().isAscii(),
   ],
   (req, res) => {
     const emailData = {
       Messages: [
         {
           From: {
-            Email: 'info@fortisureit.com',
-            Name: `Info / Service`
+            Email: "info@fortisureit.com",
+            Name: `Info / Service`,
           },
           To: [
             {
               Email: `${req.body.email}`,
-              Name: `${req.body.firstName} ${req.body.lastName}`
-            }
+              Name: `${req.body.firstName} ${req.body.lastName}`,
+            },
           ],
-          Subject: 'Thank You for Contacting Us!',
-          TextPart: 'Contact',
+          Subject: "Thank You for Contacting Us!",
+          TextPart: "Contact",
           HTMLPart: `<!DOCTYPE html>
         <html
           xmlns="http://www.w3.org/1999/xhtml"
@@ -1174,36 +1180,36 @@ app.post('/service',
               <!--[if mso | IE]></td></tr></table><![endif]-->
             </div>
           </body>
-        </html>`
-        }
-      ]
-    }
+        </html>`,
+        },
+      ],
+    };
     const emailData2 = {
       Messages: [
         {
           From: {
-            Email: 'info@fortisureit.com',
-            Name: `Info / Service`
+            Email: "info@fortisureit.com",
+            Name: `Info / Service`,
           },
           To: [
             {
-              Email: 'info@fortisureit.com'
-            }
+              Email: "info@fortisureit.com",
+            },
           ],
           Cc: [
             {
-              Email: 'rob.kozak@fortisureit.com',
-              Name: 'Rob Kozak'
-            }
+              Email: "rob.kozak@fortisureit.com",
+              Name: "Rob Kozak",
+            },
           ],
           Bcc: [
             {
-              Email: 'scott.arnold@fortisureit.com',
-              Name: 'Scott Arnold'
-            }
+              Email: "scott.arnold@fortisureit.com",
+              Name: "Scott Arnold",
+            },
           ],
-          Subject: 'New Contact Info Form',
-          TextPart: 'Contact',
+          Subject: "New Contact Info Form",
+          TextPart: "Contact",
           HTMLPart: `
         <h3>New Contact Form!</h3></br>
         Name: ${req.body.firstName}</br>
@@ -1212,45 +1218,49 @@ app.post('/service',
         Phone: ${req.body.phone}</br>
         Area of Interest: ${req.body.interest}</br>
         Message: </br>
-        ${req.body.message}`
-        }
-      ]
-    }
+        ${req.body.message}`,
+        },
+      ],
+    };
 
-    const errors = validationResult(req)
-    console.log(req.body)
+    const errors = validationResult(req);
+    console.log(req.body);
 
     //handle error
     if (!errors.isEmpty()) {
       // return res.status(422).jsonp(errors.array())
-      res.redirect('/failed')
+      res.redirect("/failed");
     } else {
       // post contact to mailjet
       mailjet
-        .post('/contact')
+        .post("/contact")
         .request({
-          Email: `${req.body.email}`
-        }).catch(handleError)
+          Email: `${req.body.email}`,
+        })
+        .catch(handleError);
 
       // start request to mailjet
-      const mailjetPOST = mailjet.post('send', { version: 'v3.1' })
+      const mailjetPOST = mailjet.post("send", { version: "v3.1" });
 
       // send out email
       mailjetPOST
         .request(emailData)
-        .then(result => {
-          console.log(result.body)
+        .then((result) => {
+          console.log(result.body);
           // redirect to success page
-          res.redirect('/success')
-        }).catch(handleError)
+          res.redirect("/success");
+        })
+        .catch(handleError);
       mailjetPOST
         .request(emailData2)
-        .then(result => {
-          console.log(result.body)
+        .then((result) => {
+          console.log(result.body);
           // redirect to success page
-          res.redirect('/success')
-        }).catch(handleError)
+          res.redirect("/success");
+        })
+        .catch(handleError);
     }
-})
+  }
+);
 
-module.exports.handler = serverless(app)
+module.exports.handler = serverless(app);

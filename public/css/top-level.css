@@ -1,5 +1,5 @@
 * {
-  font-family: 'Hind Madurai', sans-serif;
+  font-family: "Hind Madurai", sans-serif;
 }
 
 body,
@@ -11,7 +11,7 @@ h1,
 h2,
 h3,
 h4 {
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
   color: #333;
 }
 
@@ -35,7 +35,7 @@ button {
   width: 100px;
   padding: 10px;
   font-size: 1em;
-  letter-spacing: .5px;
+  letter-spacing: 0.5px;
 }
 
 button:hover {
@@ -66,7 +66,7 @@ a {
 
 .nav {
   display: grid;
-  grid-template-columns: 10% 1fr 1fr 1fr 10%;
+  grid-template-columns: 10% 1fr 1fr 1.05fr 10%;
   padding: 0.5em 0;
 }
 
@@ -128,8 +128,8 @@ a {
     text-align: left;
   }
 }
-
-@media screen and (max-width: 1081px) {
+/* 1822 */
+@media screen and (max-width: 1817px) {
   .menu {
     text-align: end;
   }
@@ -156,10 +156,10 @@ a {
     display: block;
   }
 
-  button {
+  /* button {
     width: 75px;
     padding: 5px;
-  }
+  } */
 }
 
 /* NAV BAR */
