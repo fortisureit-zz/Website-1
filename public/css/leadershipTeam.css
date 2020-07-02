@@ -89,6 +89,7 @@ body {
   margin: 0px;
   margin: 0.5em;
   font-size: 0.9em;
+  text-indent: 40px;
 }
 /* OUR TEAM - TOP */
 
@@ -127,7 +128,7 @@ body {
 @media (max-width: 1200px) {
   .sec2-container {
     grid-template-columns: 3% 1fr 1fr 3%;
-    grid-template-rows: 1200px 700px;
+    grid-template-rows: auto auto;
   }
   .greetings-title {
     font-size: 42px;
@@ -139,7 +140,7 @@ body {
 @media (max-width: 1025px) {
   .sec2-container {
     grid-template-columns: 3% 1fr 1fr 3%;
-    grid-template-rows: 1800px 950px;
+    grid-template-rows: auto auto;
   }
   .leadershipTeam-top-container {
     grid-template-columns: 1fr;
@@ -166,7 +167,7 @@ body {
 @media (max-width: 800px) {
   .sec2-container {
     grid-template-columns: 3% 1fr 3%;
-    grid-template-rows: 1000px 900px 650px 600px;
+    grid-template-rows: auto auto auto auto;
   }
   .greetings-title {
     font-size: 42px;
@@ -192,7 +193,7 @@ body {
   .sec2-container {
     display: grid;
     grid-template-columns: 1% 1fr 1%;
-    grid-template-rows: 1100px 1000px 650px 600px;
+    grid-template-rows: auto auto auto auto;
   }
   .greetings-title {
     margin-top: 9%;
@@ -207,7 +208,7 @@ body {
   .sec2-container {
     display: grid;
     grid-template-columns: 1% 1fr 1%;
-    grid-template-rows: 1400px 1250px 800px 750px;
+    grid-template-rows: auto auto auto auto;
   }
   .greetings-title {
     margin-top: 16%;
