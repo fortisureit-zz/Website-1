@@ -21,19 +21,19 @@ body {
 }
 
 .parallax-2 {
-  background-image: url(../img/Building.jpg);
+  background-image: url(https://res.cloudinary.com/dxleu7n2q/image/upload/v1594837531/fortisure-it-site/Building-Image_flhpyk.jpg);
   height: 100%;
   background-attachment: fixed;
-  background-position: center;
+  background-position: center bottom 350px;
   background-repeat: no-repeat;
-  background-size: cover;
+  background-size: 100%;
   position: relative;
 }
 
 .hero-text-2 {
   text-align: center;
   position: absolute;
-  top: 5%;
+  top: 10%;
   left: 32%;
 }
 
