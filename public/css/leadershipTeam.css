@@ -214,8 +214,11 @@ body {
     grid-template-columns: auto 1fr auto;
     row-gap: 3em;
   }
+}
+
+@media (max-width: 375px) {
   .greetings-title {
-    font-size: 15px;
+    font-size: 12px;
   }
 }
 

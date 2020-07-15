@@ -169,10 +169,15 @@ footer {
   background-color: #3b3a6d;
   color: aliceblue;
   text-align: center;
+  height: 150px;
 }
 
 footer p {
-  margin-top: 20px;
+  padding: 15px;
+}
+footer a {
+  color: aliceblue;
+  text-decoration: underline;
 }
 /* FOOTER */
 
@@ -223,11 +228,6 @@ footer p {
   .tech-students,
   .tech-training {
     margin: 1em;
-  }
-}
-@media (max-width: 600px) {
-  .nav ul li:nth-child(4) {
-    font-size: 1.2em;
   }
 }
 @media (max-width: 450px) {
@@ -364,6 +364,6 @@ footer p {
 
   .company-info h3,
   .brand {
-    text-align: left;
+    text-align: center;
   }
 }

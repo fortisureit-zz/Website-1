@@ -32,9 +32,6 @@ body {
 
 .hero-text-2 {
   text-align: center;
-  position: absolute;
-  top: 10%;
-  left: 32%;
 }
 
 .hero-text-2 div {
@@ -43,6 +40,8 @@ body {
 
 .hero-text-2 h1 {
   color: #9f1224;
+  margin: 0px;
+  padding-top: 5%;
 }
 
 span {
@@ -212,4 +211,11 @@ footer {
   transition: 0.1s;
   width: 100%;
   letter-spacing: 1px;
+}
+@media (max-width: 1240px) {
+  .parallax-2 {
+    background-position: bottom 298px right -777px;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
 }
