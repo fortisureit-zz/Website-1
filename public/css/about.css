@@ -212,6 +212,9 @@ footer {
   letter-spacing: 1px;
 }
 @media (max-width: 1240px) {
+  .parallax-2 {
+    background-position: 0px;
+  }
   .title-text h1 {
     padding-top: 5%;
     font-size: 50px;
