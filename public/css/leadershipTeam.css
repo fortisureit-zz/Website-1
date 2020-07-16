@@ -214,6 +214,7 @@ span {
     display: grid;
     grid-template-columns: auto 382px auto;
     grid-template-rows: auto auto auto auto;
+    margin-bottom: 60px;
   }
   .greetings-title {
     margin-top: 60px;
@@ -222,8 +223,8 @@ span {
 
 @media (max-width: 414px) {
   .sec2-container {
-    grid-template-columns: auto 1fr auto;
-    row-gap: 3em;
+    grid-template-columns: auto 300px auto;
+    row-gap: 6em;
   }
 }
 
