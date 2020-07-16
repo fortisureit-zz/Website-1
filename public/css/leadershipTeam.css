@@ -36,7 +36,7 @@ body {
 .leadershipTeam-top-pillar {
   display: grid;
   grid-template-columns: auto;
-  grid-template-rows: 28% 3% auto 3%;
+  grid-template-rows: 28% 3% auto;
   height: 100%;
   grid-column: 2;
 }
@@ -64,6 +64,10 @@ body {
   color: #fff;
   margin: 0%;
   font-size: 32px;
+}
+
+.leadershipTeam-top-grid h1:nth-of-type(1) {
+  font-size: 31px;
 }
 .leadershipTeam-top-grid h4 {
   color: #fff;
@@ -108,12 +112,19 @@ body {
   grid-row: 3;
   background-color: #fff;
   padding: 1.5em;
+  box-shadow: -20px 20px 0px rgba(23, 185, 163);
+  width: 95%;
+  margin-left: 4.9%;
 }
 .leadershipTeam-top-description p {
   margin: 0px;
   margin: 0.5em;
   font-size: 0.9em;
   text-indent: 40px;
+}
+span {
+  color: #9f1224;
+  font-size: 1.1em;
 }
 /* OUR TEAM - TOP */
 
@@ -227,4 +238,7 @@ footer {
   grid-column: 1 / 4;
   height: 100%;
   padding: 10px;
+}
+footer p {
+  padding-bottom: 0px !important;
 }
