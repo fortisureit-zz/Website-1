@@ -23,7 +23,6 @@ body {
 .parallax-2 {
   background-image: url(https://res.cloudinary.com/dxleu7n2q/image/upload/v1594837531/fortisure-it-site/Building-Image_flhpyk.jpg);
   height: 100%;
-  background-position: center bottom 0px;
   background-repeat: no-repeat;
   background-size: cover;
   position: relative;
